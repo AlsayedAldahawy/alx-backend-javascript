@@ -40,6 +40,6 @@ export default class HolbertonCourse {
       if (typeof stu !== 'string') throw new Error('TypeError: Students must be an array of strings');
     }
 
-    this.students = newStudents;
+    this._students = newStudents;
   }
 }
