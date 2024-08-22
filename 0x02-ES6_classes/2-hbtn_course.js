@@ -23,9 +23,9 @@ class HolbertonCourse {
     return this._length;
   }
 
-  set students(newStudents) {
-    if (newStudents instanceof Array) {
-      this._students = newStudents;
+  set students(students) {
+    if (students instanceof Array) {
+      this._students = students;
     } else {
       throw new TypeError('Students must be an Array');
     }
