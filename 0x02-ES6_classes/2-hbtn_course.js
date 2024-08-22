@@ -1,45 +1,52 @@
-export default class HolbertonCourse {
+class HolbertonCourse {
   constructor(name, length, students) {
-    if (typeof name !== 'string') throw new Error('TypeError: Name must be a string'); else this._name = name;
-    if (typeof length !== 'number') throw new Error('TypeError: length must be a number'); else this._length = length;
+    this.name = name;
+    this.length = length;
+    this.students = students;
+  }
 
-    if (!Array.isArray(students)) throw new Error('TypeError: Students must be an array of strings');
-
-    for (const stu in students) {
-      if (typeof stu !== 'string') throw new Error('TypeError: Students must be an array of strings');
+  /**
+     * @param {String} name
+     */
+  set name(name) {
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a string');
     }
-    this._students = students;
+    this._name = name;
   }
 
   get name() {
     return this._name;
   }
 
-  set name(newNAme) {
-    if (typeof newNAme !== 'string') throw new Error('TypeError: Name must be a string');
-    this._name = newNAme;
+  /**
+     * @param {Number} length
+     */
+  set length(length) {
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
+    this._length = length;
   }
 
   get length() {
     return this._length;
   }
 
-  set length(newLength) {
-    if (typeof newLength !== 'number') throw new Error('TypeError: length must be a number');
-    this._length = this.length;
+  /**
+     * @param {Array} students
+     */
+  set students(students) {
+    if (students instanceof Array) {
+      this._students = students;
+    } else {
+      throw new TypeError('Students must be an Array');
+    }
   }
 
   get students() {
     return this._students;
   }
-
-  set students(newStudents) {
-    if (!Array.isArray(newStudents)) throw new Error('TypeError: Students must be an array of strings');
-
-    for (const stu in newStudents) {
-      if (typeof stu !== 'string') throw new Error('TypeError: Students must be an array of strings');
-    }
-
-    this._students = newStudents;
-  }
 }
+
+export default HolbertonCourse;
