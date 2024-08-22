@@ -23,10 +23,6 @@ class HolbertonCourse {
     return this._length;
   }
 
-  get students() {
-    return this._students;
-  }
-
   set students(newStudents) {
     if (!Array.isArray(newStudents)) throw new TypeError('TypeError: Students must be an array of strings');
 
@@ -35,6 +31,10 @@ class HolbertonCourse {
     }
 
     this._students = newStudents;
+  }
+
+  get students() {
+    return this._students;
   }
 }
 
