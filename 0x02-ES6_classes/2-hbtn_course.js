@@ -24,13 +24,11 @@ class HolbertonCourse {
   }
 
   set students(newStudents) {
-    if (!Array.isArray(newStudents)) throw new TypeError('TypeError: Students must be an array of strings');
-
-    for (const stu in newStudents) {
-      if (typeof stu !== 'string') throw new TypeError('TypeError: Students must be an array of strings');
+    if (newStudents instanceof Array) {
+      this._students = newStudents;
+    } else {
+      throw new TypeError('Students must be an Array');
     }
-
-    this._students = newStudents;
   }
 
   get students() {
