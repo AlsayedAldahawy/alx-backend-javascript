@@ -6,14 +6,26 @@ class Car {
   }
 
   // Method to return a new object of the class
-  cloneCar() {
-    // return new Car(this._brand, this._motor, this._color);
-    // this way will make the new car an instance of class Car
-    // console.log(tc2 instanceof TestCar); >> false
 
-    return new this.constructor(this._brand, this._motor, this._color);
-    // this way will make the new car an instance of the instance itself (clone)
-    // console.log(tc2 instanceof TestCar); >> true
+  //   cloneCar() {
+  //        return new Car(this._brand, this._motor, this._color);
+  //        // this way will make the new car an instance of class Car
+  //        // console.log(tc2 instanceof TestCar); >> false
+
+  //        return new this.constructor(this._brand, this._motor, this._color);
+  //        // this way will make the new car an instance of the instance itself (clone)
+  //        // console.log(tc2 instanceof TestCar); >> true
+  //   }
+
+  // using Symbol.species
+  static get [Symbol.species]() {
+    return this;
+  }
+
+  cloneCar() {
+    const Species = this.constructor[Symbol.species];
+
+    return new Species();
   }
 }
 
