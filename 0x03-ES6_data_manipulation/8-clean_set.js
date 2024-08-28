@@ -1,7 +1,7 @@
 export default function cleanSet(set, startString) {
-  if (startString === undefined) {
+  if (typeof startString !== 'string' || startString.length === 0) {
     return '';
   }
-  return [...set].filter((string) => string !== undefined && string.startsWith(startString) && startString !== '')
+  return [...set].filter((string) => string !== undefined && string.startsWith(startString))
     .map((string) => string.slice(startString.length)).join('-');
 }
