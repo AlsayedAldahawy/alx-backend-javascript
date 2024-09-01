@@ -58,3 +58,15 @@ console.log(executeWork(createEmployee(200)));
 // Getting to work
 console.log(executeWork(createEmployee(1000)));
 // Getting to director tasks
+
+
+// task 7
+
+type Subjects = "Math" | "History";
+
+function teachClass(todayClass : Subjects) : string {
+    return `Teaching ${todayClass}`
+}
+
+console.log(teachClass("Math"));
+console.log(teachClass("History"));
