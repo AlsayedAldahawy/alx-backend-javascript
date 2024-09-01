@@ -22,6 +22,6 @@ const updatedRow2: RowElement = { firstName: "Guillaume", lastName: "Salva", age
 CRUD.updateRow(newRowID, updatedRow2);
 // Update row 125 {firstName: "Guillaume", lastName: "Salva", age: 23}
 
-CRUD.deleteRow(125);
+CRUD.deleteRow(newRowID);
 // Delete row id 125
 
