@@ -5,6 +5,11 @@ interface Teacher {
     yearsOfExperience? : number,
     location: string,
     [key: string]: any; // Index signature to allow additional properties
+    
+}
+
+interface Directors extends Teacher {
+    numberOfReports: number;
 }
 
 const teacher3: Teacher = {
@@ -15,4 +20,14 @@ const teacher3: Teacher = {
     contract: false,
   };
   
-  console.log(teacher3);
+  const director1: Directors = {
+    firstName: 'John',
+    lastName: 'Doe',
+    location: 'London',
+    fullTimeEmployee: true,
+    numberOfReports: 17,
+  };
+
+  console.log("Director", director1);
+  console.log("Teacher", teacher3);
+
